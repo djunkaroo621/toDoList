@@ -5,7 +5,6 @@
 <style>
   .overall {
     font-family: sans-serif;
-    text-align: center;
   }
 
   #header-title {
@@ -18,9 +17,8 @@
   .boxes{
     margin: 15px;
     padding: 15px;
+  }
 
-  }
-  }
   </style>
   </head>
   <body class="overall">
@@ -31,10 +29,10 @@
   <fieldset>
   <div>
 <p>Add Something To Your To Do List:</p>
-<legend>The Answer To Being More Productive Is Here</legend>
-  <input type="text" id="question" oninput="listBuild()" value="What's next?">
+<h2>The Answer To Being More Productive Is Here</h2>
+  <input type="text" id="question" value="What's next?">
+  <input type="submit" id="subButton" onclick="hitSubmit()" value="SUBMIT">
 </form>
-
 <div>
   <p>What's The Status?</p>
   <input type="radio">Finished</input>
@@ -46,26 +44,45 @@
 </div>
 <div>
 <p><del>strikethrough practice</del></p>
-<p><del>strikethrough</del> practice</p>
-<p>strikethrough <del>practice</del></p>
-<p>strike<del>through prac</del>tice</p>
 </div>
 </div>
-  <p id="compiledList"></p>
+<ul>
+  <li id="compiledList"></li>
+</ul>
+<p id="practiceHeap"></p>
 <script>
 // var headerTitle = document.getElementById("header-title");
 // console.log(headerTitle);
 // headerTitle.textContent = 'Hello';
 
-function listBuild() {
-var choreX = document.getElementById("question").value;
-document.getElementById("compiledList").innerHTML = choreX
+// function listBuild() {
+// const choreX = document.getElementById("question").value;
+// document.getElementById("compiledList").innerHTML = choreX;
+// }
 
+
+//
+// function hitSubmit() {
+//   document.getElementById("question").submit(localStorage.setItem('errand',choreX));
+// }
+
+function hitSubmit() {
+const choreX = document.getElementById("question").value;
+document.getElementById("compiledList").innerHTML = choreX;
 }
 
+//localStorage.setItem('errand', choreX);
 
-  </script>
-    </body>
+
+// localStorage.setItem('errand', choreX);
+//
+// var mommy = localStorage.getItem('momName','Yuna');
+// document.getElementById("practiceHeap").innerHTML = mommy;
+
+
+
+</script>
+</body>
 
 
 
