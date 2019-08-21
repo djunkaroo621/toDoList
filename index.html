@@ -7,19 +7,16 @@
     font-family: sans-serif;
     text-align: center;
   }
-
   #header-title {
     background-color: coral;
   }
-  #form1 {
-    margin: 15px;
-    padding: 15px;
+  .flex-container {
+    display: flex;
+    flex: 1;
   }
-  .boxes{
-    margin: 15px;
-    padding: 15px;
+  .flex-container > div {
+    flex: 1;
   }
-
   </style>
   </head>
   <body class="overall">
@@ -46,11 +43,18 @@
 <div>
 <p><del>strikethrough practice</del></p>
 </div>
-</div>
-<div>
-<ul id="leest">
-  <li id="compiledList"></li>
-</ul>
+<div class="flex-container">
+  <div>
+    <p></p>
+  </div>
+  <div>
+    <ul id="leest">
+      <li id="compiledList"></li>
+    </ul>
+  </div>
+  <div>
+    <p></p>
+  </div>
 </div>
 <p id="practiceHeap"></p>
 <script>
