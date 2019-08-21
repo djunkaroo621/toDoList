@@ -1,0 +1,14 @@
+.overall {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: white;
+}
+#header-title {
+  background-color: coral;
+}
+.flex-container {
+  display: flex;
+}
+.flex-container > div {
+  flex: 1;
+}

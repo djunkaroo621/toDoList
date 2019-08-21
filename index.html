@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>To Do List</title>
-<style>
-  .overall {
-    font-family: sans-serif;
-    text-align: center;
-  }
-  #header-title {
-    background-color: coral;
-  }
-  .flex-container {
-    display: flex;
-    flex: 1;
-  }
-  .flex-container > div {
-    flex: 1;
-  }
-  </style>
-  </head>
+
+  <title>To Do List</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
   <body class="overall">
 
 <h1 id="header-title">TO DO LIST</h1>
@@ -27,7 +15,6 @@
   <fieldset>
   <div>
 <p>Add Something To Your To Do List:</p>
-<h2>The Answer To Being More Productive Is Here</h2>
   <input type="text" id="question" value="What's next?">
   <input type="submit" id="subButton" onclick="hitSubmit()" value="SUBMIT">
 </form>
@@ -56,44 +43,8 @@
     <p></p>
   </div>
 </div>
-<p id="practiceHeap"></p>
-<script>
-// var headerTitle = document.getElementById("header-title");
-// console.log(headerTitle);
-// headerTitle.textContent = 'Hello';
 
-// function listBuild() {
-// const choreX = document.getElementById("question").value;
-// document.getElementById("compiledList").innerHTML = choreX;
-// }
+<script src="code.js"></script>
 
-
-//
-// function hitSubmit() {
-//   document.getElementById("question").submit(localStorage.setItem('errand',choreX));
-// }
-
-function hitSubmit() {
-const choreX = document.getElementById("question").value;
-document.getElementById("compiledList").innerHTML = choreX;
-var listElement = document.createElement("li");
-var goober = document.getElementById("leest")
-goober.appendChild(listElement);
-}
-
-//localStorage.setItem('errand', choreX);
-
-
-// localStorage.setItem('errand', choreX);
-//
-// var mommy = localStorage.getItem('momName','Yuna');
-// document.getElementById("practiceHeap").innerHTML = mommy;
-
-
-
-</script>
 </body>
-
-
-
 </html>
