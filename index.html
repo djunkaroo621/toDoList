@@ -5,6 +5,7 @@
 <style>
   .overall {
     font-family: sans-serif;
+    text-align: center;
   }
 
   #header-title {
@@ -33,22 +34,24 @@
   <input type="text" id="question" value="What's next?">
   <input type="submit" id="subButton" onclick="hitSubmit()" value="SUBMIT">
 </form>
-<div>
+<!-- <div>
   <p>What's The Status?</p>
   <input type="radio">Finished</input>
   <input type="radio">In Progress</input>
   <input type="radio">Pending</input>
   <input type="radio">Delete</input>
-</div>
+</div> -->
 </fieldset>
 </div>
 <div>
 <p><del>strikethrough practice</del></p>
 </div>
 </div>
-<ul>
+<div>
+<ul id="leest">
   <li id="compiledList"></li>
 </ul>
+</div>
 <p id="practiceHeap"></p>
 <script>
 // var headerTitle = document.getElementById("header-title");
@@ -69,6 +72,9 @@
 function hitSubmit() {
 const choreX = document.getElementById("question").value;
 document.getElementById("compiledList").innerHTML = choreX;
+var listElement = document.createElement("li");
+var goober = document.getElementById("leest")
+goober.appendChild(listElement);
 }
 
 //localStorage.setItem('errand', choreX);
