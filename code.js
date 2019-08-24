@@ -1,6 +1,8 @@
 
 const question = document.getElementById("question");
 const compiledList = document.getElementById("compiledList");
+const mainDiv = document.getElementById("leest");
+
 
 function hitSubmit() {
 const value = question.value;
@@ -9,6 +11,7 @@ if (value) {
   localStorage.setItem(value, value);
   location.reload();
 }
+
 }
 
 for (let i = 0; i < localStorage.length; i++) {
@@ -17,11 +20,41 @@ const key = localStorage.key(i);
 const value = localStorage.getItem(key);
 
 var list = document.createElement("P");
-var compiled = document.getElementById("compiledList");
-compiled.appendChild(list);
+
+var finishedButton = document.createElement("input");
+finishedButton.setAttribute('type','radio');
+finishedButton.setAttribute('name','finished');
+
+var delButton = document.createElement("input");
+delButton.setAttribute('type','radio');
+delButton.setAttribute('name','delete');
+
+compiledList.appendChild(list);
+compiledList.appendChild(finishedButton);
+compiledList.appendChild(delButton);
 
 compiledList.innerHTML += value;
 }
+// compiledList.style.textDecoration="line-through";
+// }
+
+// onclick='this.style.textDecoration="line-through"'
+// document.querySelector("#compiledList").style.textDecoration= "line-through";
+
+//
+// document.getElementById("compiledList").innerHTML = "<del>turtle</del>";
+//
+// }
+
+
+// function strikeThrough() {
+//
+// compiledList.changeStyle
+//
+// }
+//
+//
+// compiledList.addEventListener("click",);
 
 //brainstorm code below:
 // document.getElementById("compiledList").innerHTML = mav;
