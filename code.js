@@ -9,17 +9,20 @@ function hitSubmit() {
 const toDoValue = inputtedChore.value;
 
 toDoArray.push(toDoValue);
-console.log(toDoArray);
-inputtedChore.innerHTML = localStorage.setItem("toDoKey", toDoArray);
-compiledList.innerHTML = localStorage.getItem("toDoKey", toDoArray);
+
+let strungList = JSON.stringify(toDoArray);
+console.log(strungList);
+inputtedChore.innerHTML = localStorage.setItem("toDoKey", strungList);
+
+let parsedList = JSON.parse(strungList);
+
+compiledList.innerHTML = parsedList;
+console.log(parsedList.length);
 }
 
 
+
 // BRAINSTORMING CODE
-// const chore = document.getElementById("inputtedChore");
-// const compiledList = document.getElementById("compiledList");
-// const mainDiv = document.getElementById("leest");
-//
 // function hitSubmit() {
 // const value = inputtedChore.value;
 //
