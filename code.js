@@ -6,7 +6,6 @@ let toDoArray= [];
 
 function hitSubmit() {
 
-
 const toDoValue= inputtedChore.value;
 
 toDoArray.push(toDoValue);
@@ -20,8 +19,10 @@ let parsedList= JSON.parse(strungList);
 for (let i= 0; i< localStorage.length; i++) {
 
   toDoArray.shift(toDoValue);
-  const value= localStorage.getItem(i);
+
+  var value= localStorage.getItem(i);
   var appender= document.createElement("P");
+
   var finishedButton= document.createElement("input");
   finishedButton.setAttribute('type','checkbox');
   finishedButton.setAttribute('id','finishedButton');
@@ -31,7 +32,9 @@ for (let i= 0; i< localStorage.length; i++) {
   compiledList.appendChild(finishedButton);
   compiledList.innerHTML += parsedList;
   }
-  function strike() {
-    document.getElementById("compiledList").style.textDecoration= "line-through";
-  }
 }
+
+// function strike() {
+// if (finishedButton.checked===false) {
+//   document.getElementById("overList").style.textDecoration= "line-through";}
+// }
