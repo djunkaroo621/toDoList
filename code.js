@@ -1,26 +1,28 @@
-const inputtedChore = document.getElementById("inputtedChore");
-const subButton = document.getElementById("subButton");
-const compiledList = document.getElementById("compiledList");
+const inputtedChore= document.getElementById("inputtedChore");
+const subButton= document.getElementById("subButton");
+const compiledList= document.getElementById("compiledList");
 
 let toDoArray= [];
 
 function hitSubmit() {
 
-const toDoValue = inputtedChore.value;
+const toDoValue= inputtedChore.value;
 
 toDoArray.push(toDoValue);
 
-let strungList = JSON.stringify(toDoArray);
+let strungList= JSON.stringify(toDoArray);
 console.log(strungList);
-inputtedChore.innerHTML = localStorage.setItem("toDoKey", strungList);
+inputtedChore.innerHTML= localStorage.setItem("toDoKey", strungList);
 
 let parsedList= JSON.parse(strungList);
 
 //something is buggy below this comment that is making the output get progressively longer instead of being a distinct todo list item.
-for (let i= 0; i < localStorage.length; i++) {
+for (let i= 0; i< localStorage.length; i++) {
 
-  const value = localStorage.getItem(i);
-  var appender = document.createElement("P");
+//the single line of code directly below took approx. 4-5 hours to think of.
+  toDoArray.shift(toDoValue);
+  const value= localStorage.getItem(i);
+  var appender= document.createElement("P");
   compiledList.appendChild(appender);
   compiledList.innerHTML += parsedList;
   }
