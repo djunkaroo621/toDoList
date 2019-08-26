@@ -6,6 +6,7 @@ let toDoArray= [];
 
 function hitSubmit() {
 
+
 const toDoValue= inputtedChore.value;
 
 toDoArray.push(toDoValue);
@@ -16,17 +17,27 @@ inputtedChore.innerHTML= localStorage.setItem("toDoKey", strungList);
 
 let parsedList= JSON.parse(strungList);
 
-//something is buggy below this comment that is making the output get progressively longer instead of being a distinct todo list item.
+//something is buggy below this comment that is making the output get progressively longer instead of being a distinct todo list item. Fixed- Refer to next comment.
 for (let i= 0; i< localStorage.length; i++) {
 
 //the single line of code directly below took approx. 4-5 hours to think of.
   toDoArray.shift(toDoValue);
   const value= localStorage.getItem(i);
   var appender= document.createElement("P");
+  var finishedButton= document.createElement("input");
+  finishedButton.setAttribute('type','checkbox');
+  finishedButton.setAttribute('id','finishedButton');
+  finishedButton.setAttribute('onclick',strike());
+  
   compiledList.appendChild(appender);
+  compiledList.appendChild(finishedButton);
   compiledList.innerHTML += parsedList;
   }
+  function strike() {
+    document.getElementById("compiledList").style.textDecoration= "line-through";
+  }
 }
+
 
 
 
