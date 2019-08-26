@@ -14,11 +14,18 @@ let strungList = JSON.stringify(toDoArray);
 console.log(strungList);
 inputtedChore.innerHTML = localStorage.setItem("toDoKey", strungList);
 
-let parsedList = JSON.parse(strungList);
+let parsedList= JSON.parse(strungList);
 
-compiledList.innerHTML = parsedList;
-console.log(parsedList.length);
+//something is buggy below this comment that is making the output get progressively longer instead of being a distinct todo list item.
+for (let i= 0; i < localStorage.length; i++) {
+
+  const value = localStorage.getItem(i);
+  var appender = document.createElement("P");
+  compiledList.appendChild(appender);
+  compiledList.innerHTML += parsedList;
+  }
 }
+
 
 
 
