@@ -1,40 +1,66 @@
-const inputtedChore= document.getElementById("inputtedChore");
-const subButton= document.getElementById("subButton");
-const compiledList= document.getElementById("compiledList");
+const inputBox= document.getElementById('inputtedChore');
+const myListVar= document.getElementById('myList');
+const liItemVar= document.getElementById('liItem');
 
 let toDoArray= [];
 
 function hitSubmit() {
+var x = inputBox.value;
+var newLi= document.createElement("LI");
+var newText= document.createTextNode(x);
 
-const toDoValue= inputtedChore.value;
+newLi.appendChild(newText);
 
-toDoArray.push(toDoValue);
+myListVar.appendChild(newLi);
 
-let strungList= JSON.stringify(toDoArray);
-console.log(strungList);
-inputtedChore.innerHTML= localStorage.setItem("toDoKey", strungList);
+toDoArray.push(x);
+console.log(toDoArray);
 
-let parsedList= JSON.parse(strungList);
+localStorage.setItem('toDoKey',toDoArray);
 
-for (let i= 0; i< localStorage.length; i++) {
+inputBox.value= "";
 
-  toDoArray.shift(toDoValue);
+var checkBox= document.createElement("input");
+checkBox.setAttribute("type","checkBox");
+checkBox.setAttribute("id","fButton");
+newLi.appendChild(checkBox);
 
-  var value= localStorage.getItem(i);
-  var appender= document.createElement("P");
+var deleteButton= document.createElement("input");
+deleteButton.setAttribute("type","button");
+deleteButton.setAttribute("value","DELETE");
+newLi.appendChild(deleteButton);
 
-  var finishedButton= document.createElement("input");
-  finishedButton.setAttribute('type','checkbox');
-  finishedButton.setAttribute('id','finishedButton');
-  finishedButton.setAttribute('onclick',strike());
+document.getElementById("fButton").onclick= strike;
 
-  compiledList.appendChild(appender);
-  compiledList.appendChild(finishedButton);
-  compiledList.innerHTML += parsedList;
+function strike() {
+myListVar.style.textDecoration= "line-through";
   }
 }
 
-// function strike() {
-// if (finishedButton.checked===false) {
-//   document.getElementById("overList").style.textDecoration= "line-through";}
+
+
+//
+// for (i= 0; i< localStorage.length; i++) {
+//   }
+
+//
+// let strungList= JSON.stringify(toDoArray);
+// inputtedChore.innerHTML= localStorage.setItem("toDoKey", strungList);
+// JSON.parse(localStorage.getItem("toDoKey"));
+//
+// var checkBox= document.createElement("input");
+// checkBox.setAttribute("type","button");
+// checkBox.setAttribute("value","FINISHED");
+// checkBox.setAttribute("id","fButton");
+// // checkBox.setAttribute("onclick",strike());
+// newLi.appendChild(checkBox);
+//
 // }
+//
+// var deleteButton= document.createElement("input");
+// deleteButton.setAttribute("type","button");
+// deleteButton.setAttribute("value","DELETE");
+// newLi.appendChild(deleteButton);
+// }
+//
+//   }

@@ -1,45 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>To Do List</title>
 
-  <title>To Do List</title>
-
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
-  <body class="overall">
 
-<h1 id="header-title">TO DO LIST</h1>
-
-<div>
-  <fieldset>
-  <div>
-    <p>Add Something To Your To Do List:</p>
-      <input type="text" id="inputtedChore" value="What's next?">
-      <input type="submit" id="subButton" onclick="hitSubmit()" value="SUBMIT">
+<body>
+<h1>TO DO LIST</h1>
+<form>
+  <input type="text" id="inputtedChore">
+  <input type="button" id="submitButton" onclick="hitSubmit()" value="SUBMIT">
 </form>
-<!-- <div>
-  <p>What's The Status?</p>
-  <input type="radio">Finished</input>
-  <input type="radio">In Progress</input>
-  <input type="radio">Pending</input>
-  <input type="radio">Delete</input>
-</div> -->
-</fieldset>
-</div>
 <div>
-<!-- <p><del>strikethrough practice</del></p> -->
-</div>
-<div class="flex-container">
-  <div>
-    <p></p>
-  </div>
-  <div>
-    <p id="compiledList"></p>
-  </div>
-  <div>
-    <p></p>
-  </div>
+  <ul id="myList">
+  </ul>
 </div>
 
 <script src="code.js"></script>
