@@ -1,21 +1,22 @@
-body {
-font-family: sans-serif;
-font-size: 36px;
-text-align: center;
+.overall {
+  font-family: sans-serif;
+  background-color: white;
 }
-input {
-font-size: 36px;
+#header-title {
+  background-color: coral;
 }
-h1 {
-background-color: coral;
+.flex-container {
+  display: flex;
 }
-ul {
-list-style-type: none;
+.flex-container > div {
+  flex: 1;
+}
+#toDoList {
+list-style: none;
 }
 li {
-margin: 20px;
+  margin: 15px;
 }
-/* #fButton, input[type=checkBox]:checked + label {
-
-text-decoration: line-through;
+/* input[type=checkbox]:checked + li.strikethrough{
+  text-decoration: line-through;
 } */

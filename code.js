@@ -1,66 +1,33 @@
-const inputBox= document.getElementById('inputtedChore');
-const myListVar= document.getElementById('myList');
-const liItemVar= document.getElementById('liItem');
+var inputtedChoreVar= document.getElementById("inputtedChore");
+var toDoListVar= document.getElementById("toDoList");
+// var listItemVar= document.getElementById("listItem");
 
-let toDoArray= [];
+var toDoArray= [];
+
+document.getElementById('subButton').addEventListener('click',hitSubmit);
 
 function hitSubmit() {
-var x = inputBox.value;
-var newLi= document.createElement("LI");
-var newText= document.createTextNode(x);
 
-newLi.appendChild(newText);
+  let x= inputtedChoreVar.value;
+  toDoArray.push(x);
+  console.log(toDoArray);
 
-myListVar.appendChild(newLi);
+  localStorage.setItem('toDoKey', toDoArray);
 
-toDoArray.push(x);
-console.log(toDoArray);
+  var newListElement= document.createElement('LI');
+  var newTextNode= document.createTextNode(x);
+  newListElement.appendChild(newTextNode);
+  toDoListVar.appendChild(newListElement);
 
-localStorage.setItem('toDoKey',toDoArray);
-
-inputBox.value= "";
-
-var checkBox= document.createElement("input");
-checkBox.setAttribute("type","checkBox");
-checkBox.setAttribute("id","fButton");
-newLi.appendChild(checkBox);
-
-var deleteButton= document.createElement("input");
-deleteButton.setAttribute("type","button");
-deleteButton.setAttribute("value","DELETE");
-newLi.appendChild(deleteButton);
-
-document.getElementById("fButton").onclick= strike;
+  var fButtonElement= document.createElement('input');
+  fButtonElement.setAttribute('type','checkBox');
+  fButtonElement.setAttribute('id','fButton');
+  newListElement.appendChild(fButtonElement);
+}
+var fButtonElement= document.createElement('input');
+document.querySelector('ul').addEventListener('click', strike);
 
 function strike() {
-myListVar.style.textDecoration= "line-through";
-  }
+
+  document.getElementById('toDoList').style.textDecoration='line-through';
 }
-
-
-
-//
-// for (i= 0; i< localStorage.length; i++) {
-//   }
-
-//
-// let strungList= JSON.stringify(toDoArray);
-// inputtedChore.innerHTML= localStorage.setItem("toDoKey", strungList);
-// JSON.parse(localStorage.getItem("toDoKey"));
-//
-// var checkBox= document.createElement("input");
-// checkBox.setAttribute("type","button");
-// checkBox.setAttribute("value","FINISHED");
-// checkBox.setAttribute("id","fButton");
-// // checkBox.setAttribute("onclick",strike());
-// newLi.appendChild(checkBox);
-//
-// }
-//
-// var deleteButton= document.createElement("input");
-// deleteButton.setAttribute("type","button");
-// deleteButton.setAttribute("value","DELETE");
-// newLi.appendChild(deleteButton);
-// }
-//
-//   }

@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>To Do List</title>
 
-<link rel="stylesheet" type="text/css" href="style.css">
+  <title>To Do List</title>
+
+  <link rel="stylesheet" href="style.css">
 
 </head>
+  <body class="overall">
 
-<body>
-<h1>TO DO LIST</h1>
-<form>
-  <input type="text" id="inputtedChore">
-  <input type="button" id="submitButton" onclick="hitSubmit()" value="SUBMIT">
-</form>
+<h1 id="header-title">TO DO LIST</h1>
+
 <div>
-  <ul id="myList">
-  </ul>
+  <fieldset>
+  <div>
+      <p>Add Something To Your To Do List:</p>
+      <input type="text" id="inputtedChore" value="What's next?">
+      <input type="submit" id="subButton" value="SUBMIT">
+  </fieldset>
+  </div>
+<div class="flex-container">
+  <div>
+    <ul id="toDoList">
+      <!-- <li id="listItem"></li> -->
+    </ul>
+  </div>
 </div>
 
 <script src="code.js"></script>
