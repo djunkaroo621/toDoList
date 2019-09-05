@@ -1,6 +1,5 @@
 var inputtedChoreVar= document.getElementById("inputtedChore");
 var toDoListVar= document.getElementById("toDoList");
-// var listItemVar= document.getElementById("listItem");
 
 var toDoArray= [];
 
@@ -14,20 +13,37 @@ function hitSubmit() {
 
   localStorage.setItem('toDoKey', toDoArray);
 
+  inputtedChore.value="What's next?";
+
   var newListElement= document.createElement('LI');
   var newTextNode= document.createTextNode(x);
   newListElement.appendChild(newTextNode);
   toDoListVar.appendChild(newListElement);
 
   var fButtonElement= document.createElement('input');
-  fButtonElement.setAttribute('type','checkBox');
-  fButtonElement.setAttribute('id','fButton');
+  fButtonElement.setAttribute('type','button');
+  fButtonElement.setAttribute('value','FINISHED');
   newListElement.appendChild(fButtonElement);
+// Got help on stackoverflow below this comment for the
+// fButtonElement function- the help was the
+// putting proper argument in the function:
+// Using the template for the line-through button, I was able to code the delete
+// button on my own.
+  fButtonElement.onclick= function() {
+    strike(newListElement);
+  } // function that calls "strike" with an argument
+
+  var delButtonElement= document.createElement('input');
+  delButtonElement.setAttribute('type','button');
+  delButtonElement.setAttribute('value','DELETE');
+  newListElement.appendChild(delButtonElement);
+  delButtonElement.onclick= function() {
+    trashDunk(newListElement);
+  }
 }
-var fButtonElement= document.createElement('input');
-document.querySelector('ul').addEventListener('click', strike);
-
-function strike() {
-
-  document.getElementById('toDoList').style.textDecoration='line-through';
+function strike(newListElement) {
+  newListElement.style.textDecoration='line-through';
+}
+function trashDunk(newListElement) {
+  newListElement.parentNode.removeChild(newListElement);
 }
