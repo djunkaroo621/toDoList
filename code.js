@@ -25,10 +25,11 @@ function hitSubmit() {
   fButtonElement.setAttribute('value','FINISHED');
   newListElement.appendChild(fButtonElement);
 // Got help on stackoverflow below this comment for the
-// fButtonElement function- the help was the
-// putting proper argument in the function:
-// Using the template for the line-through button, I was able to code the delete
-// button on my own.
+// fButtonElement function- the help was
+// putting the proper argument in the function. Didn't occur to me that
+// I could manipulate the appended list item 'newListElement.'
+// Using the template for the line-through button, I was able to code the
+// delete button on my own.
   fButtonElement.onclick= function() {
     strike(newListElement);
   } // function that calls "strike" with an argument
