@@ -13,17 +13,18 @@ function hitSubmit() {
 
   localStorage.setItem('toDoKey', toDoArray);
 
-  inputtedChore.value="What's next?";
-
+  inputtedChoreVar.value= '';
+  
   var newListElement= document.createElement('LI');
   var newTextNode= document.createTextNode(x);
   newListElement.appendChild(newTextNode);
   toDoListVar.appendChild(newListElement);
 
   var fButtonElement= document.createElement('input');
-  fButtonElement.setAttribute('type','button');
+  fButtonElement.setAttribute('id','fButton');
+  fButtonElement.setAttribute('type','checkbox');
   fButtonElement.setAttribute('value','FINISHED');
-  newListElement.appendChild(fButtonElement);
+  newListElement.append(fButtonElement);
 // Got help on stackoverflow below this comment for the
 // fButtonElement function- the help was
 // putting the proper argument in the function. Didn't occur to me that
@@ -31,10 +32,11 @@ function hitSubmit() {
 // Using the template for the line-through button, I was able to code the
 // delete button on my own.
   fButtonElement.onclick= function() {
-    strike(newListElement);
+    strike(newListElement, fButtonElement);
   } // function that calls "strike" with an argument
 
   var delButtonElement= document.createElement('input');
+  delButtonElement.setAttribute('id','dButton');
   delButtonElement.setAttribute('type','button');
   delButtonElement.setAttribute('value','DELETE');
   newListElement.appendChild(delButtonElement);
@@ -42,8 +44,10 @@ function hitSubmit() {
     trashDunk(newListElement);
   }
 }
-function strike(newListElement) {
-  newListElement.style.textDecoration='line-through';
+function strike(newListElement, fButtonElement) {
+
+  if (fButtonElement.checked) {newListElement.style.textDecoration='line-through';
+} else {newListElement.style.textDecoration='none'}
 }
 function trashDunk(newListElement) {
   newListElement.parentNode.removeChild(newListElement);
