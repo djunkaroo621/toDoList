@@ -26,3 +26,8 @@ li {
   background-color: red;
   margin-left: 10px;
 }
+#universalDelete {
+  height: 25px;
+  background-color: purple;
+  border-radius: 15px;
+}

@@ -14,7 +14,7 @@ function hitSubmit() {
   localStorage.setItem('toDoKey', toDoArray);
 
   inputtedChoreVar.value= '';
-  
+
   var newListElement= document.createElement('LI');
   var newTextNode= document.createTextNode(x);
   newListElement.appendChild(newTextNode);
@@ -43,7 +43,11 @@ function hitSubmit() {
   delButtonElement.onclick= function() {
     trashDunk(newListElement);
   }
+  document.getElementById("universalDelete").onclick= function() {
+    univDel();
+  }
 }
+// Realized that fButtonElement must be an argument to make unchecking work properly.
 function strike(newListElement, fButtonElement) {
 
   if (fButtonElement.checked) {newListElement.style.textDecoration='line-through';
@@ -52,3 +56,11 @@ function strike(newListElement, fButtonElement) {
 function trashDunk(newListElement) {
   newListElement.parentNode.removeChild(newListElement);
 }
+function univDel() {
+  var dad= document.getElementById("divDad");
+  var kiddo= document.getElementById("toDoList");
+  dad.parentNode.removeChild(kiddo);
+}
+//
+// onload
+// localStorage.getItem('toDoKey');
