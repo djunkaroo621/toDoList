@@ -11,7 +11,7 @@ function hitSubmit() {
   toDoArray.push(x);
   console.log(toDoArray);
 
-  localStorage.setItem('toDoKey', toDoArray);
+  // localStorage.setItem('toDoKey', toDoArray);
 
   inputtedChoreVar.value= '';
 
@@ -57,10 +57,8 @@ function trashDunk(newListElement) {
   newListElement.parentNode.removeChild(newListElement);
 }
 function univDel() {
-  var dad= document.getElementById("divDad");
-  var kiddo= document.getElementById("toDoList");
-  dad.parentNode.removeChild(kiddo);
+  var punt= document.getElementById("toDoList");
+  punt.innerHTML='';
+
+
 }
-//
-// onload
-// localStorage.getItem('toDoKey');

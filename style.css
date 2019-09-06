@@ -1,9 +1,13 @@
 .overall {
   font-family: sans-serif;
   background-color: white;
+  text-align: center;
+  background-image: url(rocks.jpeg);
+  background-size: cover;
 }
 #header-title {
-  background-color: coral;
+  background-color: #f0a44d;
+  border-radius: 5px;
 }
 .flex-container {
   display: flex;
@@ -23,11 +27,21 @@ li {
   margin-left:10px;
 }
 #dButton {
-  background-color: red;
+  background-color: #c42825;
   margin-left: 10px;
+  border-radius: 5px;
 }
 #universalDelete {
   height: 25px;
-  background-color: purple;
-  border-radius: 15px;
+  background-color: #3c8f4b;
+  border-radius: 5px;
+}
+#subButton  {
+  background-color: #3c8f4b;
+  border-radius: 5px;
+}
+#fieldBox {
+  border-radius: 5px;
+  background-color: #f0a44d;
+  padding-bottom: 10px;
 }
