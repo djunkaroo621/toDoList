@@ -11,7 +11,7 @@ function hitSubmit() {
   toDoArray.push(x);
   console.log(toDoArray);
 
-  // localStorage.setItem('toDoKey', toDoArray);
+  localStorage.setItem('toDoKey', toDoArray);
 
   inputtedChoreVar.value= '';
 
@@ -25,6 +25,7 @@ function hitSubmit() {
   fButtonElement.setAttribute('type','checkbox');
   fButtonElement.setAttribute('value','FINISHED');
   newListElement.append(fButtonElement);
+
 // Got help on stackoverflow below this comment for the
 // fButtonElement function- the help was
 // putting the proper argument in the function. Didn't occur to me that
