@@ -1,66 +1,66 @@
-.overall {
+.overall  {
   font-family: sans-serif;
   background-color: white;
   text-align: center;
   background-image: url(rocks.jpeg);
   background-size: cover;
 }
-#header-title {
+#header-title   {
   background-color: #f0a44d;
   border-radius: 5px;
   margin-left: 350px;
   margin-right: 350px;
   font-size: 60px;
 }
-.flex-container {
+.flex-container   {
   display: flex;
 }
-.flex-container > div {
+.flex-container > div   {
   flex: 1;
 }
 p {
   font-size: 40px;
 }
-#inputtedChore  {
+#inputted-chore  {
   font-size: 25px;
 }
-#toDoList {
+#to-do-list   {
 list-style: none;
 }
 li {
   margin: 15px;
 }
-#fButton {
+#finish-checkbox  {
   border-radius: 5px;
   background-color: green;
   margin-left: 5px;
 }
-#dButton {
+#delete-button  {
   background-color: #c42825;
   margin-left: 5px;
   border-radius: 5px;
   font-size: 20px;
 }
-#universalDelete {
+#empty-list   {
   background-color: #3c8f4b;
   border-radius: 5px;
   font-size: 35px;
 }
-#subButton  {
+#sub-button  {
   background-color: #3c8f4b;
   border-radius: 5px;
   font-size: 20px;
 }
-#fieldBox {
+#field-box   {
   border-radius: 5px;
   background-color: #f0a44d;
   margin-left: 275px;
   margin-right: 275px;
   padding-bottom: 4px;
 }
-#universalDelete {
+#empty-list   {
   font-size: 20px;
 }
-#nListElement   {
+#new-list-element   {
   font-size: 25px;
 }

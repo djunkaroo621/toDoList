@@ -1,9 +1,9 @@
-var inputtedChoreVar = document.getElementById("inputtedChore");
-var toDoListVar = document.getElementById("toDoList");
+var inputtedChoreVar = document.getElementById('inputted-chore');
+var toDoListVar = document.getElementById('to-do-list');
 
 var toDoArray = [];
 
-document.getElementById('subButton').addEventListener('click', hitSubmit);
+document.getElementById('sub-button').addEventListener('click', hitSubmit);
 
 function hitSubmit() {
 
@@ -23,26 +23,26 @@ function hitSubmit() {
   //     }
   //   }
 
-  inputtedChoreVar.value = "";
+  inputtedChoreVar.value = '';
 
-  let newListElement = document.createElement('LI');
-  newListElement.setAttribute('id', 'nListElement');
+  let newListItem = document.createElement('LI');
+  newListItem.setAttribute('id', 'new-list-element');
   let newTextNode = document.createTextNode(x);
 
   function listGenerator() {
-    newListElement.appendChild(newTextNode);
-    toDoListVar.appendChild(newListElement);
+    newListItem.appendChild(newTextNode);
+    toDoListVar.appendChild(newListItem);
   }
 
   listGenerator();
 
-  let fButtonElement = document.createElement('input');
+  let finishButton = document.createElement('input');
 
   function finishButtonGenerator() {
-  fButtonElement.setAttribute('id', 'fButton');
-  fButtonElement.setAttribute('type', 'checkbox');
-  fButtonElement.setAttribute('value', 'FINISHED');
-  newListElement.append(fButtonElement);
+    finishButton.setAttribute('id', 'finish-checkbox');
+    finishButton.setAttribute('type', 'checkbox');
+    finishButton.setAttribute('value', 'FINISHED');
+    newListItem.append(finishButton);
   }
 
   finishButtonGenerator();
@@ -56,37 +56,37 @@ function hitSubmit() {
 
   // function that calls "strike" with an argument
 
-  fButtonElement.onclick = function() {
-    strike(newListElement, fButtonElement);
+  finishButton.onclick = function() {
+    strikeListItem(newListItem, finishButton);
   }
 
-  var delButtonElement = document.createElement('input');
-  delButtonElement.setAttribute('id', 'dButton');
-  delButtonElement.setAttribute('type', 'button');
-  delButtonElement.setAttribute('value', 'DELETE');
-  newListElement.appendChild(delButtonElement);
-  delButtonElement.onclick = function() {
-    trashDunk(newListElement);
+  var deleteButton = document.createElement('input');
+  deleteButton.setAttribute('id', 'delete-button');
+  deleteButton.setAttribute('type', 'button');
+  deleteButton.setAttribute('value', 'DELETE');
+  newListItem.appendChild(deleteButton);
+  deleteButton.onclick = function() {
+    redDeleteItem(newListItem);
   }
 
-  document.getElementById("universalDelete").onclick = function() {
-    univDel();
+  document.getElementById('empty-list').onclick = function() {
+    emptyList();
   }
 }
 
 // Realized that fButtonElement must be an argument to make *unchecking* work properly.
-function strike(newListElement, fButtonElement) {
-  if (fButtonElement.checked) {
-    newListElement.style.textDecoration = 'line-through';
+function strikeListItem(newListItem, finishButton) {
+  if (finishButton.checked) {
+    newListItem.style.textDecoration = 'line-through';
   } else {
-    newListElement.style.textDecoration = 'none'
+    newListItem.style.textDecoration = 'none'
   }
 }
 
-function trashDunk(newListElement) {
-  newListElement.parentNode.removeChild(newListElement);
+function redDeleteItem(newListItem) {
+  newListItem.parentNode.removeChild(newListItem);
 }
 
-function univDel() {
-  document.getElementById("toDoList").innerHTML = '';
+function emptyList() {
+  document.getElementById('to-do-list').innerHTML = '';
 }
