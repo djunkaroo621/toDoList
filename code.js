@@ -8,8 +8,8 @@ document.getElementById('subButton').addEventListener('click', hitSubmit);
 function hitSubmit() {
 
   if (inputtedChoreVar.value.length <= 0) {
-    newListElement= false;
-}
+    newListElement = false;
+  }
 
   let x = inputtedChoreVar.value;
   toDoArray.push(x);
@@ -17,18 +17,34 @@ function hitSubmit() {
 
   localStorage.setItem('toDoKey', JSON.stringify(toDoArray));
 
+  // document.getElementById('inputtedChore').onkeydown = function(e){
+  //    if(e.keyCode == 13) {
+  //      hitSubmit();
+  //     }
+  //   }
+
   inputtedChoreVar.value = "";
 
   let newListElement = document.createElement('LI');
   let newTextNode = document.createTextNode(x);
-  newListElement.appendChild(newTextNode);
-  toDoListVar.appendChild(newListElement);
+
+  function listGenerator() {
+    newListElement.appendChild(newTextNode);
+    toDoListVar.appendChild(newListElement);
+  }
+
+  listGenerator();
 
   let fButtonElement = document.createElement('input');
+
+  function finishButtonGenerator() {
   fButtonElement.setAttribute('id', 'fButton');
   fButtonElement.setAttribute('type', 'checkbox');
   fButtonElement.setAttribute('value', 'FINISHED');
   newListElement.append(fButtonElement);
+  }
+
+  finishButtonGenerator();
 
   // Got help on stackoverflow below this comment for the
   // fButtonElement function- the help was
@@ -37,12 +53,11 @@ function hitSubmit() {
   // Using the template for the line-through button, I was able to code the
   // delete button on my own.
 
-
   // function that calls "strike" with an argument
 
   fButtonElement.onclick = function() {
     strike(newListElement, fButtonElement);
-    }
+  }
 
   var delButtonElement = document.createElement('input');
   delButtonElement.setAttribute('id', 'dButton');
@@ -73,4 +88,4 @@ function trashDunk(newListElement) {
 
 function univDel() {
   document.getElementById("toDoList").innerHTML = '';
-  }
+}
