@@ -26,6 +26,7 @@ function hitSubmit() {
   inputtedChoreVar.value = "";
 
   let newListElement = document.createElement('LI');
+  newListElement.setAttribute('id', 'nListElement');
   let newTextNode = document.createTextNode(x);
 
   function listGenerator() {

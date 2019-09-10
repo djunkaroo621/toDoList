@@ -10,12 +10,19 @@
   border-radius: 5px;
   margin-left: 350px;
   margin-right: 350px;
+  font-size: 60px;
 }
 .flex-container {
   display: flex;
 }
 .flex-container > div {
   flex: 1;
+}
+p {
+  font-size: 40px;
+}
+#inputtedChore  {
+  font-size: 25px;
 }
 #toDoList {
 list-style: none;
@@ -32,15 +39,17 @@ li {
   background-color: #c42825;
   margin-left: 5px;
   border-radius: 5px;
+  font-size: 25px;
 }
 #universalDelete {
-  height: 25px;
   background-color: #3c8f4b;
   border-radius: 5px;
+  font-size: 40px;
 }
 #subButton  {
   background-color: #3c8f4b;
   border-radius: 5px;
+  font-size: 25px;
 }
 #fieldBox {
   border-radius: 5px;
@@ -48,4 +57,10 @@ li {
   margin-left: 275px;
   margin-right: 275px;
   padding-bottom: 4px;
+}
+#universalDelete {
+  font-size: 25px;
+}
+#nListElement   {
+  font-size: 25px;
 }
