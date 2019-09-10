@@ -45,10 +45,7 @@ li {
 #fieldBox {
   border-radius: 5px;
   background-color: #f0a44d;
-  padding-bottom: 10px;
-  margin-left: 250px;
-  margin-right: 250px;
-}
-#inputtedChore {
-  size: 650px;
+  margin-left: 275px;
+  margin-right: 275px;
+  padding-bottom: 4px;
 }
