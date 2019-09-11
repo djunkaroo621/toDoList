@@ -6,9 +6,8 @@ var toDoArray = [];
 document.getElementById('sub-button').addEventListener('click', hitSubmit);
 
 function hitSubmit() {
-
-  if (inputtedChoreVar.value.length <= 0) {
-    newListElement = false;
+  if (inputtedChoreVar.value.length === 0) {
+    return;
   }
 
   let x = inputtedChoreVar.value;
@@ -60,18 +59,27 @@ function hitSubmit() {
     strikeListItem(newListItem, finishButton);
   }
 
-  var deleteButton = document.createElement('input');
-  deleteButton.setAttribute('id', 'delete-button');
-  deleteButton.setAttribute('type', 'button');
-  deleteButton.setAttribute('value', 'DELETE');
-  newListItem.appendChild(deleteButton);
-  deleteButton.onclick = function() {
-    redDeleteItem(newListItem);
+  let deleteButton = document.createElement('input');
+
+  function deleteButtonGenerator() {
+    deleteButton.setAttribute('id', 'delete-button');
+    deleteButton.setAttribute('type', 'button');
+    deleteButton.setAttribute('value', 'DELETE');
+    newListItem.appendChild(deleteButton);
+    deleteButton.onclick = function() {
+      redDeleteItem(newListItem);
+    }
   }
 
-  document.getElementById('empty-list').onclick = function() {
-    emptyList();
+  deleteButtonGenerator();
+
+  function emptyListButton() {
+    document.getElementById('empty-list').onclick = function() {
+      emptyList();
+    }
   }
+
+  emptyListButton();
 }
 
 // Realized that fButtonElement must be an argument to make *unchecking* work properly.
