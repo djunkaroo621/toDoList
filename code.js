@@ -28,23 +28,23 @@ function hitSubmit() {
   newListItem.setAttribute('id', 'new-list-element');
   let newTextNode = document.createTextNode(x);
 
-  function listGenerator() {
+  function createList() {
     newListItem.appendChild(newTextNode);
     toDoListVar.appendChild(newListItem);
   }
 
-  listGenerator();
+  createList();
 
   let finishButton = document.createElement('input');
 
-  function finishButtonGenerator() {
+  function createFinishButton() {
     finishButton.setAttribute('id', 'finish-checkbox');
     finishButton.setAttribute('type', 'checkbox');
     finishButton.setAttribute('value', 'FINISHED');
     newListItem.append(finishButton);
   }
 
-  finishButtonGenerator();
+  createFinishButton();
 
   // Got help on stackoverflow below this comment for the
   // fButtonElement function- the help was
@@ -61,7 +61,7 @@ function hitSubmit() {
 
   let deleteButton = document.createElement('input');
 
-  function deleteButtonGenerator() {
+  function createDeleteButton() {
     deleteButton.setAttribute('id', 'delete-button');
     deleteButton.setAttribute('type', 'button');
     deleteButton.setAttribute('value', 'DELETE');
@@ -71,18 +71,17 @@ function hitSubmit() {
     }
   }
 
-  deleteButtonGenerator();
+  createDeleteButton();
 
-  function emptyListButton() {
-    document.getElementById('empty-list').onclick = function() {
-      emptyList();
+  function createEmptyButton() {
+    document.getElementById('empty-list').onclick = function emptyList() {
+      document.getElementById('to-do-list').innerHTML = '';
     }
   }
 
-  emptyListButton();
+  createEmptyButton();
 }
 
-// Realized that fButtonElement must be an argument to make *unchecking* work properly.
 function strikeListItem(newListItem, finishButton) {
   if (finishButton.checked) {
     newListItem.style.textDecoration = 'line-through';
@@ -93,8 +92,4 @@ function strikeListItem(newListItem, finishButton) {
 
 function redDeleteItem(newListItem) {
   newListItem.parentNode.removeChild(newListItem);
-}
-
-function emptyList() {
-  document.getElementById('to-do-list').innerHTML = '';
 }
