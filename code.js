@@ -28,6 +28,7 @@ function hitSubmit() {
   }
 
   createList();
+  createFinishButton(newListItem);
   createDeleteButton(newListItem);
   createEmptyButton(newListItem);
 
@@ -40,13 +41,18 @@ function hitSubmit() {
     newListItem.append(finishButton);
   }
 
-  createFinishButton();
-
   finishButton.onclick = function() {
     strikeListItem(newListItem, finishButton);
   }
 
-  // var deleteButton = document.createElement('input');
+  function strikeListItem(newListItem, finishButton) {
+    if (finishButton.checked) {
+      newListItem.style.textDecoration = 'line-through';
+    } else {
+      newListItem.style.textDecoration = 'none'
+    }
+
+    strikeListItem();
 
   function createDeleteButton(newListItem) {
     var deleteButton = document.createElement('input');
@@ -55,11 +61,13 @@ function hitSubmit() {
     deleteButton.setAttribute('value', 'DELETE');
     newListItem.appendChild(deleteButton);
     deleteButton.onclick = function() {
-      redDeleteItem(newListItem);
+      redDeleteItem(newListItem) {
+        newListItem.parentNode.removeChild(newListItem);
+      }
     }
   }
 
-  createDeleteButton();
+    createDeleteButton();
 
   function createEmptyButton() {
     document.getElementById('empty-list').onclick = function emptyList() {
@@ -67,17 +75,5 @@ function hitSubmit() {
     }
   }
 
-  createEmptyButton();
-}
-
-function strikeListItem(newListItem, finishButton) {
-  if (finishButton.checked) {
-    newListItem.style.textDecoration = 'line-through';
-  } else {
-    newListItem.style.textDecoration = 'none'
+    createEmptyButton();
   }
-}
-
-function redDeleteItem(newListItem) {
-  newListItem.parentNode.removeChild(newListItem);
-}
