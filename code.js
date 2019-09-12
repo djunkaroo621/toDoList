@@ -28,6 +28,8 @@ function hitSubmit() {
   }
 
   createList();
+  createDeleteButton(newListItem);
+  createEmptyButton(newListItem);
 
   let finishButton = document.createElement('input');
 
@@ -44,9 +46,10 @@ function hitSubmit() {
     strikeListItem(newListItem, finishButton);
   }
 
-  let deleteButton = document.createElement('input');
+  // var deleteButton = document.createElement('input');
 
-  function createDeleteButton() {
+  function createDeleteButton(newListItem) {
+    var deleteButton = document.createElement('input');
     deleteButton.setAttribute('id', 'delete-button');
     deleteButton.setAttribute('type', 'button');
     deleteButton.setAttribute('value', 'DELETE');
