@@ -1,11 +1,14 @@
 var inputtedChoreVar = document.getElementById('inputted-chore');
 var toDoListVar = document.getElementById('to-do-list');
 var toDoArray = [];
+
 document.getElementById('sub-button').addEventListener('click', hitSubmit);
+
 function hitSubmit() {
   if (inputtedChoreVar.value.length === 0) {
     return;
   }
+
   let x = inputtedChoreVar.value;
   toDoArray.push(x);
   console.log(toDoArray);
@@ -17,10 +20,12 @@ function hitSubmit() {
   let newListItem = document.createElement('LI');
   newListItem.setAttribute('id', 'new-list-element');
   let newTextNode = document.createTextNode(x);
+
   function createList() {
     newListItem.appendChild(newTextNode);
     toDoListVar.appendChild(newListItem);
   }
+
   createList();
   let finishButton = document.createElement('input');
   function createFinishButton() {
@@ -35,7 +40,9 @@ function hitSubmit() {
   finishButton.onclick = function() {
     strikeListItem(newListItem, finishButton);
   }
+
   let deleteButton = document.createElement('input');
+
   function createDeleteButton() {
     deleteButton.setAttribute('id', 'delete-button');
     deleteButton.setAttribute('type', 'button');
@@ -45,7 +52,9 @@ function hitSubmit() {
       redDeleteItem(newListItem);
     }
   }
+
   createDeleteButton();
+
   function createEmptyButton() {
     document.getElementById('empty-list').onclick = function emptyList() {
       document.getElementById('to-do-list').innerHTML = '';
@@ -53,6 +62,7 @@ function hitSubmit() {
   }
   createEmptyButton();
 }
+
 function strikeListItem(newListItem, finishButton) {
   if (finishButton.checked) {
     newListItem.style.textDecoration = 'line-through';
@@ -60,6 +70,7 @@ function strikeListItem(newListItem, finishButton) {
     newListItem.style.textDecoration = 'none'
   }
 }
+
 function redDeleteItem(newListItem) {
   newListItem.parentNode.removeChild(newListItem);
 }
