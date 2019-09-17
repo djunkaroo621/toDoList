@@ -11,6 +11,7 @@ function hitSubmit() {
         return;
     }
 
+// Creates the list
     const x = inputtedChoreVar.value;
     toDoArray.push(x);
     console.log(toDoArray);
@@ -28,6 +29,7 @@ function hitSubmit() {
 
     createList();
 
+// Creates the finish button
     const finishButton = document.createElement('input');
 
     const createFinishButton = () => {
@@ -43,6 +45,7 @@ function hitSubmit() {
         strikeListItem(newListItem, finishButton);
     }
 
+// Creates the delete button
     const deleteButton = document.createElement('input');
 
     const createDeleteButton = () => {
@@ -57,6 +60,7 @@ function hitSubmit() {
 
     createDeleteButton();
 
+// Creates the empty list button and executes the empty list feature
     const createEmptyButton = () => {
         document.getElementById('empty-list').onclick = function emptyList() {
             document.getElementById('to-do-list').innerHTML = '';
@@ -65,12 +69,11 @@ function hitSubmit() {
     createEmptyButton();
 }
 
+// Executes the line through feature
 const strikeListItem = (newListItem, finishButton) => {
-    if (finishButton.checked) {
-        newListItem.style.textDecoration = 'line-through';
-    } else {
-        newListItem.style.textDecoration = 'none'
+    finishButton.checked ? newListItem.style.textDecoration = 'line-through' :
+    newListItem.style.textDecoration = 'none'
     }
-}
 
+// Executes the delete feature when pressing the red delete button
 const redDeleteItem = (newListItem) => newListItem.parentNode.removeChild(newListItem);
