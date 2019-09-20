@@ -30,7 +30,7 @@ function hitSubmit() {
 
     createFinishButton(newListItem, finishButton);
 
-    finishButton.onclick = function (newListItem, finishButton) {
+    finishButton.onclick = function() {
         strikeListItem(newListItem, finishButton);
     }
 
