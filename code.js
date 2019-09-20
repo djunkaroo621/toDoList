@@ -21,59 +21,65 @@ function hitSubmit() {
     const newListItem = document.createElement('LI');
     newListItem.setAttribute('id', 'new-list-element');
     const newTextNode = document.createTextNode(x);
+    console.log(newTextNode);
 
-    const createList = () => {
-        newListItem.appendChild(newTextNode);
-        toDoListVar.appendChild(newListItem);
-    }
+    createList(newListItem, toDoListVar, newTextNode);
 
-    createList();
-
-// Creates the finish button
+// Creates the finish button (checkbox)
     const finishButton = document.createElement('input');
 
-    const createFinishButton = () => {
-        finishButton.setAttribute('id', 'finish-checkbox');
-        finishButton.setAttribute('type', 'checkbox');
-        finishButton.setAttribute('value', 'FINISHED');
-        newListItem.append(finishButton);
-    }
-
-    createFinishButton();
+    createFinishButton(newListItem, finishButton);
 
     finishButton.onclick = function () {
         strikeListItem(newListItem, finishButton);
     }
 
-// Creates the delete button
+// Function call that creates the delete button
     const deleteButton = document.createElement('input');
 
-    const createDeleteButton = () => {
-        deleteButton.setAttribute('id', 'delete-button');
-        deleteButton.setAttribute('type', 'button');
-        deleteButton.setAttribute('value', 'DELETE');
-        newListItem.appendChild(deleteButton);
-        deleteButton.onclick = function () {
-            redDeleteItem(newListItem);
-        }
-    }
+    createDeleteButton(deleteButton, newListItem);
 
-    createDeleteButton();
-
-// Creates the empty list button and executes the empty list feature
-    const createEmptyButton = () => {
-        document.getElementById('empty-list').onclick = function emptyList() {
-            document.getElementById('to-do-list').innerHTML = '';
-        }
-    }
+// Function call that creates the empty list button
     createEmptyButton();
 }
 
-// Executes the line through feature
-const strikeListItem = (newListItem, finishButton) => {
+// Function executes the line through feature
+const strikeListItem = (newListItem,finishButton) => {
     finishButton.checked ? newListItem.style.textDecoration = 'line-through' :
     newListItem.style.textDecoration = 'none'
     }
 
-// Executes the delete feature when pressing the red delete button
+// Function executes creating a todo list item
+const createList = (newListItem, toDoListVar, newTextNode) => {
+    newListItem.appendChild(newTextNode);
+    toDoListVar.appendChild(newListItem);
+    }
+
+// Function executes the checkbox line-through feature
+const createFinishButton = (newListItem, finishButton) => {
+    finishButton.setAttribute('id', 'finish-checkbox');
+    finishButton.setAttribute('type', 'checkbox');
+    finishButton.setAttribute('value', 'FINISHED');
+    newListItem.append(finishButton);
+    }
+
+// Function creates the red delete button
+const createDeleteButton = (deleteButton, newListItem) => {
+    deleteButton.setAttribute('id', 'delete-button');
+    deleteButton.setAttribute('type', 'button');
+    deleteButton.setAttribute('value', 'DELETE');
+    newListItem.appendChild(deleteButton);
+    deleteButton.onclick = function () {
+        redDeleteItem(newListItem);
+        }
+    }
+
+// Function executes the delete feature when pressing the red delete button
 const redDeleteItem = (newListItem) => newListItem.parentNode.removeChild(newListItem);
+
+// Function executes the empty list button
+const createEmptyButton = () => {
+    document.getElementById('empty-list').onclick = function emptyList() {
+        document.getElementById('to-do-list').innerHTML = '';
+    }
+}
