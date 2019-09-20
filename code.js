@@ -25,12 +25,12 @@ function hitSubmit() {
 
     createList(newListItem, toDoListVar, newTextNode);
 
-// Creates the finish button (checkbox)
+// Creates the finish button and executes the line-through feature (checkbox)
     const finishButton = document.createElement('input');
 
     createFinishButton(newListItem, finishButton);
 
-    finishButton.onclick = function () {
+    finishButton.onclick = function (newListItem, finishButton) {
         strikeListItem(newListItem, finishButton);
     }
 
@@ -55,7 +55,7 @@ const createList = (newListItem, toDoListVar, newTextNode) => {
     toDoListVar.appendChild(newListItem);
     }
 
-// Function executes the checkbox line-through feature
+// Function creates the checkbox
 const createFinishButton = (newListItem, finishButton) => {
     finishButton.setAttribute('id', 'finish-checkbox');
     finishButton.setAttribute('type', 'checkbox');
